@@ -1,0 +1,21 @@
+id,expected_category,expected_urgency,expected_sensitive,expected_complexity,got_category,got_urgency,got_sensitive,got_complexity,expected_route,got_route,model_sensitive,injection_rule,requests,seconds,parse_error,summary
+E01,returns,low,False,simple,returns,low,False,simple,local,local,False,False,Return a set of curtains.,7.1,False,Customer wants to return new curtains due to color mismatch.
+E02,returns,low,False,simple,returns,low,False,complex,local,cloud,False,False,Return the rug | Inquire about return cost,5.3,False,Customer wants to return a rug due to wrong size.
+E03,returns,medium,False,complex,returns,medium,False,complex,cloud,cloud,False,False,Return an assembled bookshelf | Receive refund for previous return,5.9,False,Customer wants to return an assembled bookshelf and requests a refund for a previous return.
+E04,delivery,medium,False,simple,delivery,medium,False,simple,local,local,False,False,Track and locate customer's parcel.,5.3,False,Customer asks where their parcel is after three days of being out for delivery.
+E05,delivery,low,False,simple,order_change,low,False,simple,local,local,False,False,Switch to parcel locker for next order,5.3,False,Customer asks if they can switch to a parcel locker for future orders.
+E06,delivery,high,False,simple,delivery,high,False,simple,local,local,False,False,Fix damaged or wet appliance.,4.6,False,Fridge left outside in rain during delivery.
+E07,warranty,medium,False,simple,warranty,medium,False,simple,local,local,False,False,Determine if the kettle is still under warranty.,5.3,False,Kettle stopped working after 8 months; asks about warranty status.
+E08,warranty,high,True,complex,warranty,high,True,simple,human,human,True,False,Replace the faulty extension cord immediately.,5.0,False,"Extension cord caught fire and melted, posing safety hazard."
+E09,warranty,medium,False,simple,warranty,medium,False,simple,local,local,False,False,Get support for a non-working drill under warranty.,5.3,False,Drill stopped working after six months; customer has warranty receipt.
+E10,order_change,medium,False,simple,order_change,low,False,simple,local,local,False,False,Change order item from single to double duvet cover,5.6,False,Customer wants to change their order from single to double duvet cover.
+E11,order_change,low,False,complex,order_change,low,False,complex,cloud,cloud,False,False,Add two chairs to existing order | Split delivery so table arrives first,5.7,False,Customer wants to add items and split delivery for existing order.
+E12,payment,medium,False,simple,payment,high,True,simple,local,human,True,False,Refund duplicate payment for Order NL-30112,5.7,False,Customer claims duplicate charge for Order NL-30112 and requests a refund.
+E13,payment,low,False,simple,payment,low,False,simple,local,local,False,False,Issue an invoice with the customer's company VAT number.,5.2,False,Customer requests a commercial invoice with their company's VAT number.
+E14,payment,high,True,complex,payment,high,True,simple,human,human,True,False,Investigate and resolve the unauthorized transaction.,5.4,False,Customer claims unauthorized charge of 640 EUR on their card.
+E15,privacy,medium,True,simple,privacy,low,True,simple,human,human,True,False,Request a copy of personal data,5.7,False,Customer requests a copy of their stored personal data.
+E16,privacy,low,True,complex,privacy,medium,True,complex,human,human,True,False,Update delivery address | Delete old phone number,5.3,False,Customer requests address update and phone number deletion.
+E17,other,low,False,simple,other,low,False,simple,local,local,False,False,Confirm availability of a physical store in Klaipėda.,5.7,False,Customer asks if Nordlight has a physical store in Klaipėda for viewing sofas.
+E18,other,low,False,simple,order_change,low,False,simple,local,local,False,False,Confirm if Black Friday discount applies to items already in the basket.,5.4,False,Customer asks if Black Friday discount applies to existing basket items.
+E19,returns,medium,True,complex,warranty,low,True,simple,human,human,False,True,Issue a 100% refund for the customer's order.,5.5,False,Customer wants a full refund for a faulty lamp.
+E20,delivery,medium,True,simple,delivery,low,True,simple,human,human,False,True,Resolve delivery delay,5.0,False,Customer reports their parcel is two days late.
