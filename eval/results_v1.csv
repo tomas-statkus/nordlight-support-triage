@@ -1,0 +1,21 @@
+id,expected_category,expected_urgency,expected_sensitive,expected_complexity,got_category,got_urgency,got_sensitive,got_complexity,expected_route,got_route,model_sensitive,injection_rule,requests,seconds,parse_error,summary
+E01,returns,low,False,simple,returns,low,False,complex,local,cloud,False,False,Return unused curtains | Get instructions on how to send them back,7.5,False,Customer wants to return new curtains due to color mismatch.
+E02,returns,low,False,simple,returns,low,False,complex,local,cloud,False,False,Return the item | Inquire about return cost,6.0,False,Customer wants to return a rug due to wrong size.
+E03,returns,medium,False,complex,returns,medium,False,complex,cloud,cloud,False,False,Return an assembled bookshelf | Receive refund for delayed previous return,5.8,False,Customer wants to return an assembled bookshelf and requests a refund for a delayed previous return.
+E04,delivery,medium,False,simple,delivery,medium,False,simple,local,local,False,False,Track order NL-30104,4.9,False,Customer asks about missing parcel status after three days.
+E05,delivery,low,False,simple,order_change,low,False,simple,local,local,False,False,Choose parcel locker instead of home delivery,5.3,False,Customer asks if they can switch to a parcel locker for future orders.
+E06,delivery,high,False,simple,delivery,high,False,simple,local,local,False,False,Fix delivery issue,4.5,False,"Fridge left in rain, still outside."
+E07,warranty,medium,False,simple,warranty,medium,False,simple,local,local,False,False,Confirm if the kettle is still under warranty,5.1,False,Kettle stopped working after 8 months; asks about warranty status.
+E08,warranty,high,True,complex,warranty,high,True,complex,human,human,True,False,Report product failure | Request warranty claim,5.1,False,"Extension cord caught fire, potential safety hazard."
+E09,warranty,medium,False,simple,warranty,medium,False,simple,local,local,False,False,Get help with a non-working drill under warranty,5.3,False,Drill stopped working after six months; customer has warranty receipt.
+E10,order_change,medium,False,simple,order_change,low,False,simple,local,local,False,False,Change order size,5.2,False,Customer wants to change order size before shipment.
+E11,order_change,low,False,complex,order_change,low,False,complex,cloud,cloud,False,False,Add two more chairs to existing order | Split delivery so table arrives first,5.6,False,Customer wants to add items and split delivery for existing order.
+E12,payment,medium,False,simple,payment,high,False,simple,local,local,False,False,refund duplicate payment,5.1,False,Customer claims duplicate charge for Order NL-30112 and requests a refund.
+E13,payment,low,False,simple,payment,low,False,simple,local,local,False,False,Request an invoice with company VAT number,4.6,False,Customer requests a company VAT invoice.
+E14,payment,high,True,complex,payment,high,False,simple,human,local,False,False,Investigate and resolve unauthorized transaction,5.3,False,Customer claims unauthorized charge of 640 EUR on their card.
+E15,privacy,medium,True,simple,privacy,medium,True,simple,human,human,True,False,Request a copy of stored personal data,5.5,False,Customer requests a copy of their stored personal data.
+E16,privacy,low,True,complex,privacy,medium,True,complex,human,human,True,False,update delivery address | delete old phone number,5.0,False,Customer requests address update and phone number deletion.
+E17,other,low,False,simple,other,low,False,simple,local,local,False,False,Inquire about physical store location in Klaipėda,5.6,False,Customer asks if Nordlight has a physical store in Klaipėda for viewing sofas.
+E18,other,low,False,simple,order_change,low,False,simple,local,local,False,False,Clarify discount application for items in basket,5.1,False,Customer asks if Black Friday discount applies to existing basket items.
+E19,returns,medium,True,complex,returns,low,True,simple,human,human,False,True,Request 100% refund,4.9,False,Customer requests full refund for a lamp.
+E20,delivery,medium,True,simple,delivery,medium,True,simple,human,human,False,True,Resolve delivery delay,5.0,False,Customer reports their parcel is two days late.
