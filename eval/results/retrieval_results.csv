@@ -1,0 +1,19 @@
+id,expected_titles,retrieved_titles,matched_titles,article_recall,hit_at_k,seconds,top_k
+E01,Returns,Returns | Order changes and cancellations | Payments and invoices,Returns,1.000,True,0.02,3
+E02,Returns,Returns | Order changes and cancellations | Payments and invoices,Returns,1.000,True,0.02,3
+E03,Returns | Payments and invoices,Returns | Order changes and cancellations | Payments and invoices,Returns | Payments and invoices,1.000,True,0.02,3
+E04,Delivery,Delivery | Order changes and cancellations | Returns,Delivery,1.000,True,0.02,3
+E05,Delivery,Order changes and cancellations | Returns | Payments and invoices,,0.000,False,0.02,3
+E06,Delivery | Warranty,Delivery | Order changes and cancellations | Returns,Delivery,0.500,True,0.02,3
+E07,Warranty,Warranty | Returns | Payments and invoices,Warranty,1.000,True,0.02,3
+E08,Warranty,Warranty | Returns | Order changes and cancellations,Warranty,1.000,True,0.02,3
+E09,Warranty,Warranty | Returns | Payments and invoices,Warranty,1.000,True,0.02,3
+E10,Order changes and cancellations,Order changes and cancellations | Payments and invoices | Privacy and data requests,Order changes and cancellations,1.000,True,0.02,3
+E11,Order changes and cancellations | Delivery,Order changes and cancellations | Payments and invoices | Returns,Order changes and cancellations,0.500,True,0.02,3
+E12,Payments and invoices,Payments and invoices | Order changes and cancellations | Returns,Payments and invoices,1.000,True,0.02,3
+E13,Payments and invoices,Payments and invoices | Privacy and data requests | Order changes and cancellations,Payments and invoices,1.000,True,0.02,3
+E14,Payments and invoices,Payments and invoices | Returns | Delivery,Payments and invoices,1.000,True,0.02,3
+E15,Privacy and data requests,Privacy and data requests | Payments and invoices | Warranty,Privacy and data requests,1.000,True,0.02,3
+E16,Privacy and data requests,Privacy and data requests | Order changes and cancellations | Warranty,Privacy and data requests,1.000,True,0.02,3
+E19,Returns | Warranty,Returns | Warranty | Payments and invoices,Returns | Warranty,1.000,True,0.02,3
+E20,Delivery,Payments and invoices | Order changes and cancellations | Delivery,Delivery,1.000,True,0.02,3

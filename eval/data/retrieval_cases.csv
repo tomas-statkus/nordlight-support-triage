@@ -1,0 +1,19 @@
+id,expected_titles
+E01,Returns
+E02,Returns
+E03,Returns|Payments and invoices
+E04,Delivery
+E05,Delivery
+E06,Delivery|Warranty
+E07,Warranty
+E08,Warranty
+E09,Warranty
+E10,Order changes and cancellations
+E11,Order changes and cancellations|Delivery
+E12,Payments and invoices
+E13,Payments and invoices
+E14,Payments and invoices
+E15,Privacy and data requests
+E16,Privacy and data requests
+E19,Returns|Warranty
+E20,Delivery

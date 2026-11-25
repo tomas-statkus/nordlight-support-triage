@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Nordlight classifier evaluation.
 
-Sends every ticket in eval/tickets.csv to the local model with the same
+Sends every ticket in eval/data/tickets.csv to the local model with the same
 system prompt and JSON schema as the n8n "Classify (Ollama)" node, then
 compares the labels with the expected ones.
 
 Usage (from the repo folder, with Ollama running):
     python3 eval/run_eval.py
 
-Writes eval/results.md and eval/results.csv. Standard library only.
+Writes eval/results/latest.md and eval/results/latest.csv. Standard library only.
 """
 import csv
 import hashlib
@@ -22,6 +22,8 @@ import urllib.request
 from datetime import datetime
 
 HERE = pathlib.Path(__file__).resolve().parent
+DATA_DIR = HERE / "data"
+RESULTS_DIR = HERE / "results"
 OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
 MODEL = "qwen3.5:4b"
 FIELDS = ["category", "urgency", "sensitive", "complexity"]
@@ -69,12 +71,12 @@ OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 
 def load_prompt():
-    path = HERE / "classify_prompt.txt"
+    path = DATA_DIR / "classify_prompt.txt"
     if not path.exists():
-        sys.exit("Missing eval/classify_prompt.txt. Paste the system prompt from the n8n Classify (Ollama) node into it.")
+        sys.exit("Missing eval/data/classify_prompt.txt. Paste the system prompt from the n8n Classify (Ollama) node into it.")
     raw = path.read_text(encoding="utf-8").strip()
     if not raw or raw.startswith("PASTE"):
-        sys.exit("eval/classify_prompt.txt still has the placeholder. Paste the system prompt from n8n into it.")
+        sys.exit("eval/data/classify_prompt.txt still has the placeholder. Paste the system prompt from n8n into it.")
     # Copied straight out of the n8n JSON body, the prompt still has \n and \" escapes. Undo them.
     if "\\n" in raw or '\\"' in raw:
         try:
@@ -143,7 +145,7 @@ def cell(text, limit=80):
 def main():
     prompt = load_prompt()
     prompt_id = hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:8]
-    with open(HERE / "tickets.csv", newline="", encoding="utf-8") as f:
+    with open(DATA_DIR / "tickets.csv", newline="", encoding="utf-8") as f:
         tickets = list(csv.DictReader(f))
 
     print(f"{len(tickets)} tickets · model {MODEL} · prompt {prompt_id}")
@@ -235,9 +237,9 @@ def main():
             lines.append(f"| {r['t']['id']} | {f} | {show(r['expected'][f])} | {show(r['got'][f])} | {cell(r['t']['message'])} |")
     else:
         lines.append("None.")
-    (HERE / "results.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (RESULTS_DIR / "latest.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    with open(HERE / "results.csv", "w", newline="", encoding="utf-8") as f:
+    with open(RESULTS_DIR / "latest.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["id"] + [f"expected_{x}" for x in FIELDS] + [f"got_{x}" for x in FIELDS]
                    + ["expected_route", "got_route", "model_sensitive", "injection_rule", "requests", "seconds", "parse_error", "summary"])
@@ -252,7 +254,7 @@ def main():
     print(f"Sensitive missed: {len(missed_sensitive)} of {n_sensitive} (model alone: {len(model_missed)}) · "
           f"over-escalated: {len(over_escalated)} · injection rule fired: {len(rule_fired)}")
     print(f"Latency: median {statistics.median(times):.1f} s, worst {max(times):.1f} s")
-    print("Saved eval/results.md and eval/results.csv")
+    print("Saved eval/results/latest.md and eval/results/latest.csv")
 
 
 if __name__ == "__main__":
