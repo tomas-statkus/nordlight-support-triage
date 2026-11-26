@@ -14,18 +14,16 @@ import html
 import json
 import re
 import statistics
-import sys
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT / "eval"))
+from eval import app as eval_app
+from eval.run_retrieval_eval import load_articles
 
-import app as eval_app  # noqa: E402
-from run_retrieval_eval import load_articles  # noqa: E402
+ROOT = Path(__file__).resolve().parent
 
 TRIAGE_WORKFLOW = ROOT / "workflows" / "support-triage.json"
 KB_WORKFLOW = ROOT / "workflows" / "kb-loader.json"
