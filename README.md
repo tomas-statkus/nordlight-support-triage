@@ -6,7 +6,6 @@ Nordlight Home is a fictional homeware retailer. Every ticket and customer detai
 
 > **Status: v1.** Classification, retrieval, routing, the three reply lanes, the human review queue and a 20-ticket evaluation all work. Known gaps are listed under [Limitations](#limitations) and [Next steps](#next-steps).
 
-**Demo video:** _TODO (60–90 s)_
 
 ## Results at a glance
 
